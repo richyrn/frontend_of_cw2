@@ -10,4 +10,4 @@ EMAIL: RA1478@live.mdx.ac.uk
 
 - Github Repo: 
 
-- live link: 
+- live link: https://richyrn.github.io/frontend_of_cw2/
