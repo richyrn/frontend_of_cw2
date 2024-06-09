@@ -14,7 +14,7 @@ var app = new Vue({
     //a user must provide “Name” and “Phone number” before can click on the checkout button (1%)
     username: "",
     phonenumber: "",
-    backendURL: "https://cst-3145-coursework-2-backend.vercel.app/",
+    backendURL: "https://final-cw2-backend-k541.vercel.app/",
   },
 
   // after the VUE app is launched, invoke the get the lessons from backend
@@ -42,9 +42,9 @@ var app = new Vue({
     addToCart(lesson) {
       // push the product id to cart so as to search product by id and display it in cart page
       // check if lessons spaces is greater than zero
-      if (lesson.spaces > 0) {
+      if (lesson.availability > 0) {
         // take one from total space
-        lesson.spaces--;
+        lesson.availability--;
         // find current lesson object in cart
         var cartIndex = this.cart.findIndex((i) => i.lesson === lesson);
         // if lesson is already in cart increment amount by 1 so as to prevent duplicates and save space and memory

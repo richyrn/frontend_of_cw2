@@ -70,7 +70,7 @@
 							</div>
 							<div class="card-body">
 								<p>price: {{product.price}} AED</p>
-								<p>Spaces: {{product.spaces}}</p>
+								<p>Spaces: {{product.availability}}</p>
 								<p>location: {{product.location}}</p>
 							</div>
 							<div class="card-footer">
@@ -97,7 +97,7 @@
 										<i :class="item.lesson.icon" class="display-1 ms-auto"></i>
 									</div>
 									<div class="col-sm-4">
-										<p></p>Title: {{item.lesson.title}}</p>
+										<p></p>Title: {{item.lesson.subject}}</p>
 										<p>quantity: {{item.amount}}</p>
 										<!-- remove product from cart button -->
 										<button class="btn btn-danger rounded-0" v-on:click='removeProduct(item.lesson)'>X</button>
