@@ -14,6 +14,7 @@ var app = new Vue({
     //a user must provide “Name” and “Phone number” before can click on the checkout button (1%)
     username: "",
     phonenumber: "",
+    // backend URL for the hosted backend folder on vercel
     backendURL: "https://final-cw2-backend-k541.vercel.app/",
   },
 
@@ -31,11 +32,12 @@ var app = new Vue({
 
   // vue js app methods
   methods: {
+    // this function uses a GET request to get all the lessons
     async getLessons() {
       var url = `${this.backendURL}lessons/?search=${this.searchTerm}&sort=${this.sortAttribute}&order=${this.sortOrder}`;
-      var lessons = await fetch(url);
-      lessons = await lessons.json();
-      this.lessons = lessons;
+      var lessons = await fetch(url); // use the fetch API to get the lessons from the URL
+      lessons = await lessons.json(); // convert all the data to json
+      this.lessons = lessons; // set the main lessons variable to all the lessons got from the backend folder on vercel
     },
 
     // add to cart method
@@ -88,16 +90,16 @@ var app = new Vue({
       return itemCount;
     },
 
-    async checkout() {
-      var order = {
-        lessons: [...this.cart],
-        username: this.username,
-        phonenumber: this.phonenumber,
+    async checkout() { // this function handles the checkout functionality
+      var order = { // create an order object with all the lessons in the cart
+        lessons: [...this.cart], // get all cart items
+        username: this.username, // get the user name
+        phonenumber: this.phonenumber, // get the phonenumber 
       };
-      fetch(`${this.backendURL}orders`, {
+      fetch(`${this.backendURL}orders`, { // send a post request to the orders route URL
         method: "POST",
         headers: { "content-Type": "application/json" },
-        body: JSON.stringify(order),
+        body: JSON.stringify(order), // convert the order to JSON and send to backend
       });
 
       alert("order successful!");
